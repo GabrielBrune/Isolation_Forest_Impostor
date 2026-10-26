@@ -1,0 +1,10 @@
+tipo,indice,posicao_no_ranking_IF,posicao_no_ranking_LOF,score_IF,limiar,Time,Amount,variaveis_mais_extremas,interpretacao_do_grupo
+falso positivo,274771,1,1,0.7484,0.6398,166198.0,25691.16,"V7=100.61, V5=-83.81, V27=80.84",[PREENCHER: por que o modelo errou/acertou aqui?]
+falso positivo,58465,2,2,0.7457,0.6398,48401.0,19656.53,"V20=52.23, V2=-38.48, V23=-27.70",[PREENCHER: por que o modelo errou/acertou aqui?]
+falso positivo,54018,3,3,0.7402,0.6398,46253.0,11898.09,"V20=31.97, V2=-23.27, V23=-17.01",[PREENCHER: por que o modelo errou/acertou aqui?]
+falso negativo,68633,70468,65584,0.3712,0.6398,53076.0,1.18,"V13=1.58, V25=1.29, V15=1.04",[PREENCHER: por que o modelo errou/acertou aqui?]
+falso negativo,56703,59516,71261,0.3807,0.6398,47545.0,0.76,"V11=2.24, V17=1.36, V14=-1.09",[PREENCHER: por que o modelo errou/acertou aqui?]
+falso negativo,50537,56833,39270,0.383,0.6398,44532.0,1.0,"V10=-1.38, V3=1.31, V22=1.26",[PREENCHER: por que o modelo errou/acertou aqui?]
+fraude que o LOF ranqueia melhor que o IF,52521,53692,13070,0.3857,0.6398,45501.0,105.99,"V24=-1.57, V14=-1.45, V22=-1.40",[PREENCHER: por que o modelo errou/acertou aqui?]
+fraude que o LOF ranqueia melhor que o IF,72757,30703,85,0.4096,0.6398,54846.0,1.79,"V27=3.10, V23=2.12, V1=-1.54",[PREENCHER: por que o modelo errou/acertou aqui?]
+fraude que o LOF ranqueia melhor que o IF,112840,26235,3266,0.4156,0.6398,72824.0,45.03,"V13=-1.90, V3=1.49, V16=-1.43",[PREENCHER: por que o modelo errou/acertou aqui?]

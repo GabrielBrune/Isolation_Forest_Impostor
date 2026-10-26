@@ -1,0 +1,79 @@
+{
+  "qualidade": {
+    "linhas_originais": 284807,
+    "colunas": 31,
+    "valores_ausentes": 0,
+    "linhas_duplicadas": 1081,
+    "fraudes_entre_duplicadas": 19,
+    "fraudes_originais": 492,
+    "linhas_apos_remover_duplicadas": 283726,
+    "fraudes_apos_remover_duplicadas": 473,
+    "proporcao_fraude": 0.001667101358352777
+  },
+  "eda": {
+    "descoberta_1_proporcao_fraude": 0.001667101358352777,
+    "descoberta_2_amount": {
+      "mediana": 22.0,
+      "media": 88.47268731099723,
+      "maximo": 25691.16,
+      "mediana_fraude": 9.82,
+      "mediana_normal": 22.0
+    },
+    "descoberta_3_top_variaveis": {
+      "V17": 7.685,
+      "V14": 7.191,
+      "V12": 6.145,
+      "V10": 5.073,
+      "V16": 4.588
+    },
+    "fraude_por_hora_do_dia_primeiras": {
+      "0": 0.00078,
+      "1": 0.00238,
+      "2": 0.01451,
+      "3": 0.00488,
+      "4": 0.01044,
+      "5": 0.00368,
+      "6": 0.0022,
+      "7": 0.00318,
+      "8": 0.00088,
+      "9": 0.00101,
+      "10": 0.00048,
+      "11": 0.00316,
+      "12": 0.00111,
+      "13": 0.00111,
+      "14": 0.00139,
+      "15": 0.00159,
+      "16": 0.00134,
+      "17": 0.00174,
+      "18": 0.00165,
+      "19": 0.00122,
+      "20": 0.00108,
+      "21": 0.00091,
+      "22": 0.00059,
+      "23": 0.00156
+    }
+  },
+  "linhas_repetidas_treino_teste": 0,
+  "outliers_iqr": [
+    {
+      "variavel": "Amount",
+      "outliers_normal_%": 11.16,
+      "outliers_fraude_%": 18.39
+    },
+    {
+      "variavel": "V17",
+      "outliers_normal_%": 2.46,
+      "outliers_fraude_%": 80.13
+    },
+    {
+      "variavel": "V14",
+      "outliers_normal_%": 4.82,
+      "outliers_fraude_%": 86.89
+    },
+    {
+      "variavel": "V12",
+      "outliers_normal_%": 5.26,
+      "outliers_fraude_%": 82.45
+    }
+  ]
+}

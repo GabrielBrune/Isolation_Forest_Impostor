@@ -1,0 +1,12 @@
+# dataset (150 MB, acima do limite de 100 MB do GitHub): baixar pelo link do README
+data/*.csv
+
+# ambiente e caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# resultados (CSV, JSON e PNG) SÃO versionados de propósito, como evidência de execução

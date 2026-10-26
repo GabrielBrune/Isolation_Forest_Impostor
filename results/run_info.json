@@ -1,0 +1,25 @@
+{
+  "data_hora": "2026-10-25T23:46:32",
+  "python": "3.14.5",
+  "pandas": "3.1.0",
+  "numpy": "2.5.4",
+  "scikit_learn": "1.9.1",
+  "semente": 42,
+  "tamanho_teste": 0.3,
+  "contaminacao": 0.002,
+  "lof_rodou": true,
+  "lof_treino_max": 20000,
+  "e4_rodou": true,
+  "dados": {
+    "linhas_originais": 284807,
+    "colunas": 31,
+    "valores_ausentes": 0,
+    "linhas_duplicadas": 1081,
+    "fraudes_entre_duplicadas": 19,
+    "fraudes_originais": 492,
+    "linhas_apos_remover_duplicadas": 283726,
+    "fraudes_apos_remover_duplicadas": 473,
+    "proporcao_fraude": 0.001667101358352777
+  },
+  "linhas_repetidas_treino_teste": 0
+}

@@ -1,0 +1,16 @@
+fator,valor,tempo_treino_s,tempo_predicao_s,pr_auc
+n_estimators,25,0.1205,0.1524,0.1024
+n_estimators,50,0.2243,0.2893,0.1073
+n_estimators,100,0.4072,0.5572,0.1335
+n_estimators,200,0.7476,1.1291,0.1083
+n_estimators,400,1.4316,2.242,0.122
+max_samples,64,0.3193,0.4599,0.0714
+max_samples,128,0.3535,0.4958,0.1037
+max_samples,256,0.384,0.5512,0.1335
+max_samples,512,0.4686,0.5737,0.1202
+max_samples,1024,0.6109,0.604,0.1411
+max_samples,2048,0.9752,0.625,0.1763
+registros_de_treino,19861,0.2658,0.5778,0.1235
+registros_de_treino,49652,0.2969,0.6635,0.1376
+registros_de_treino,99304,0.4383,0.5292,0.1209
+registros_de_treino,198608,0.4647,0.5399,0.1335
