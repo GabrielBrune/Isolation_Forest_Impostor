@@ -19,7 +19,7 @@ As hipóteses foram registradas antes de rodar com o dataset real. A coluna de s
 | **H3:** `contamination` só move o limiar; aumentá-lo sobe o recall e derruba a precisão; a acurácia continua alta | **Confirmada** | PR-AUC idêntica (0,1335) nas 7 linhas; recall de 8% a 80% e precisão de 29% a 2,7% |
 | **H4 (opcional):** o resultado varia pouco entre sementes | **Não sustentada** | 0,043 a 0,136 entre 10 sementes (desvio de 0,025 sobre média de 0,108) |
 | **Extra:** retirar `Time` não piora a PR-AUC de forma relevante | **Sem evidência de efeito** | 0,1335 com `Time`, 0,1238 sem; diferença dentro da variação entre sementes |
-| **Extra 2 (registrada antes de rodar):** o Isolation Forest não muda com o escalonador (cada corte sorteia variável e ponto entre mínimo e máximo, então reescalar uma variável não altera a estrutura); Z-score robusto (mediana/MAD) e LOF com `RobustScaler` podem mudar | **Pendente** | [PREENCHER após rodar: `results/extra_robusto.csv`] |
+| **Extra 2 (registrada antes de rodar):** o Isolation Forest não muda com o escalonador (cada corte sorteia variável e ponto entre mínimo e máximo, então reescalar uma variável não altera a estrutura); Z-score robusto (mediana/MAD) e LOF com `RobustScaler` podem mudar | **Pendente** | Ainda não executado até o Checkpoint 2 (03/11); previsto para a próxima etapa (seção 13) |
 
 ## 4. Dataset e fonte
 **Credit Card Fraud Detection** (Machine Learning Group da ULB), no Kaggle: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
@@ -27,7 +27,7 @@ As hipóteses foram registradas antes de rodar com o dataset real. A coluna de s
 - Transações de portadores europeus ao longo de dois dias em setembro de 2013.
 - Colunas: `Time`, `Amount`, `V1` a `V28` (componentes de PCA, anonimizadas) e `Class` (1 = fraude; usada **só na avaliação**).
 - **Contagens confirmadas na execução:** 284.807 transações e 31 colunas, nenhum valor ausente, 492 fraudes (0,173%). Foram removidas 1.081 linhas duplicadas (19 eram fraudes), restando 283.726 linhas e 473 fraudes (0,167%).
-- Licença: [PREENCHER: copiar da página do dataset].
+- Licença (conforme exibida na página do dataset no Kaggle): Database: Open Database, Contents: Database Contents.
 - O arquivo **não está no repositório** (150 MB; o limite do GitHub é 100 MB). Veja `data/README.md`.
 
 ## 5. Decisões de método
@@ -77,9 +77,11 @@ py -m pytest
 - As tabelas (CSV), os gráficos (PNG) e o `run_info.json` (versões, parâmetros e contagens) ficam em `results/`. O modelo do protótipo (cerca de 1,7 MB) é gerado em `modelo/` e versionado na execução final, para o app abrir sem retreinar.
 - Os testes usam dados **sintéticos** apenas para validar o código; nenhum resultado do projeto vem deles.
 - A primeira execução costuma ser lenta no Windows (carregamento das bibliotecas); a seguinte é bem mais rápida.
+- No Prompt de Comando (`cmd`), use `.venv\Scripts\activate.bat` no lugar de `.venv\Scripts\Activate.ps1`, que é para o PowerShell. Também funciona sem ambiente virtual, instalando direto com `py -m pip install -r requirements.txt`.
+- Validado também em outro ambiente Windows, com **Python 3.12.2**: `py -m pytest` (6 testes passaram) e `py -m streamlit run app.py` (o protótipo abriu em `localhost:8501`).
 
 ## 9. Resultados
-Os números abaixo vêm da execução com o dataset real (`results/`). Os tempos variam entre execuções da mesma máquina.
+Os números abaixo vêm da execução com o dataset real (`results/`). Os tempos variam entre execuções da mesma máquina. A leitura de cada experimento, com as hipóteses, as métricas justificadas e as limitações, está em `docs/checkpoint2_interpretacao.md`.
 
 ### 9.1 E1: comparação dos métodos (mesmo orçamento de 0,2% de alertas)
 | Método | PR-AUC | ROC-AUC | Precisão | Recall | F1 | Acurácia | Tempo treino (s) | Tempo predição (s) |
@@ -126,11 +128,11 @@ O ranking não muda (PR-AUC constante); só o equilíbrio entre falsos alarmes e
 | Fraude que o LOF ranqueia melhor | 72757 | 30.703 | 1,79 | V27 em 3,1 desvios |
 | Fraude que o LOF ranqueia melhor | 112840 | 26.235 | 45,03 | variáveis discretas |
 
-- **Falsos positivos:** são as maiores transações do conjunto, com variáveis em dezenas de desvios. O Isolation Forest isola o que é extremo, e extremo não é fraude: o método mede raridade.
+- **Falsos positivos:** estão entre as maiores transações do conjunto (a de índice 274771 tem o maior `Amount` do dataset, 25.691,16), com variáveis em dezenas de desvios. O Isolation Forest isola o que é extremo, e extremo não é fraude: o método mede raridade.
 - **Falsos negativos:** têm valor muito baixo e variáveis dentro de poucos desvios, ou seja, parecem normais em 30 dimensões e ficam na metade menos suspeita do ranking. *Hipótese ainda não verificada:* fraudes de valor mínimo podem ser testes de cartão.
 - **Casos que o LOF ranqueia melhor:** *hipótese:* são incomuns pela **combinação** das variáveis (densidade local), e não por uma variável isolada.
 
-[PREENCHER: interpretação final do grupo, caso a caso, em `docs/analise_de_erros.md`.]
+A interpretação caso a caso está na coluna `interpretacao_do_grupo` de `results/analise_de_erros.csv` e resumida em `docs/checkpoint2_interpretacao.md`. Ela é preliminar: o que aparece como hipótese ainda não foi verificado nos dados.
 
 ## 10. Protótipo
 `app.py` abre a **Central de Impostores** com duas abas: *Analisar transação* (sortear, editar o `Amount`, analisar, ver score, posição no teste, gráfico e variáveis mais extremas) e *Ranking de risco* (lote de demonstração ordenado por score, com inspeção de qualquer caso). O alerta é uma triagem experimental: não confirma fraude. O gráfico 2D é uma projeção (PCA) que mostra a variância explicada na legenda.
@@ -149,7 +151,7 @@ O ranking não muda (PR-AUC constante); só o equilíbrio entre falsos alarmes e
 
 ## 12. Integrantes e responsabilidades
 | Integrante | GitHub |
-|---|---|---|---|
+|---|---|
 | Felipe Hinke Betoni | felipebetoni |
 | Gabriel Brune | GabrielBrune | 
 | Ian Torres | itorresxp | 
@@ -160,7 +162,7 @@ Funções propostas: dados/EDA; preparação; experimentos; protótipo; comunica
 
 ## 13. Próximos passos
 1. **Checkpoint 1 (27/10):** repositório conectado, execução reproduzida por outro integrante e interpretação das descobertas e dos erros escrita.
-2. **Checkpoint 2 (03/11):** rodar o Extra 2 (medidas robustas); repetir o E1 com várias divisões treino/teste para reduzir o efeito do teste pequeno; testar a hipótese dos valores mínimos (fração de fraudes com `Amount` < 2); concluir a análise de erros com a posição de cada caso também no LOF.
+2. **Checkpoint 2 (03/11):** E1 a E4 executados com o dataset real, hipóteses avaliadas (seção 3) e análise de erros interpretada (seção 9.5 e `docs/checkpoint2_interpretacao.md`). **Pendentes, até a pré-banca:** rodar o Extra 2 (medidas robustas); repetir o E1 com várias divisões treino/teste para reduzir o efeito do teste pequeno; testar a hipótese dos valores mínimos (fração de fraudes com `Amount` < 2); concluir a análise de erros com a posição de cada caso também no LOF.
 3. **Pré-banca (10/11):** congelamento técnico do protótipo.
 4. **Entrega final:** 17/11 às 17h. Apresentação em 24/11.
 
