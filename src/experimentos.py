@@ -312,6 +312,7 @@ def salvar_modelo_para_app(d, df, modelo, if_teste, pasta_modelo):
     pacote = {"modelo": modelo, "scaler": d.scaler, "colunas": d.colunas, "pca": pca,
               "variancia_pca": [float(v) for v in pca.explained_variance_ratio_],
               "limiar": limiar, "grafico": grafico, "lote": lote,
+              "ranking_real": ranking_real,
               "scores_referencia": if_teste, "media_treino": d.X_treino.mean(),
               "desvio_treino": d.X_treino.std().replace(0, 1)}
     pasta_modelo.mkdir(parents=True, exist_ok=True)
