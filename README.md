@@ -163,7 +163,6 @@ Funções propostas: dados/EDA; preparação; experimentos; protótipo; comunica
 ## 13. Links
 - Repositório: https://github.com/GabrielBrune/Isolation_Forest_Impostor
 - Resumo expandido: `docs/resumo_expandido.md`
-- Vídeo: [PREENCHER] • Aplicação: [PREENCHER] • Materiais (folder e carrossel): @isolation
-
+- Vídeo: [PREENCHER] • Aplicação: Localhost • Materiais (folder e carrossel): ![QR Code](`docs/isolationfimpostor_qr.png `)  
 ## 14. Referências e Diário de IA
 Referências em `docs/referencias.md`. O registro do uso de ferramentas de IA está em `docs/diario_ia.md`.
