@@ -160,16 +160,10 @@ A interpretação caso a caso está na coluna `interpretacao_do_grupo` de `resul
 
 Funções propostas: dados/EDA; preparação; experimentos; protótipo; comunicação. Todos devem conseguir explicar o fluxo completo.
 
-## 13. Próximos passos
-1. **Checkpoint 1 (27/10):** repositório conectado, execução reproduzida por outro integrante e interpretação das descobertas e dos erros escrita.
-2. **Checkpoint 2 (03/11):** E1 a E4 executados com o dataset real, hipóteses avaliadas (seção 3) e análise de erros interpretada (seção 9.5 e `docs/checkpoint2_interpretacao.md`). **Pendentes, até a pré-banca:** rodar o Extra 2 (medidas robustas); repetir o E1 com várias divisões treino/teste para reduzir o efeito do teste pequeno; testar a hipótese dos valores mínimos (fração de fraudes com `Amount` < 2); concluir a análise de erros com a posição de cada caso também no LOF.
-3. **Pré-banca (10/11):** congelamento técnico do protótipo.
-4. **Entrega final:** 17/11 às 17h. Apresentação em 24/11.
-
-## 14. Links
+## 13. Links
 - Repositório: https://github.com/GabrielBrune/Isolation_Forest_Impostor
 - Resumo expandido: `docs/resumo_expandido.md`
-- Vídeo: [PREENCHER] • Aplicação: [PREENCHER] • Materiais (folder e carrossel): [PREENCHER]
+- Vídeo: [PREENCHER] • Aplicação: [PREENCHER] • Materiais (folder e carrossel): @isolation
 
-## 15. Referências e Diário de IA
+## 14. Referências e Diário de IA
 Referências em `docs/referencias.md`. O registro do uso de ferramentas de IA está em `docs/diario_ia.md`.
